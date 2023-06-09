@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         MouseLook();
 
         FinalMovements();
+        
+        
     }
 
     public void LockCursor(CursorLockMode lockMode)
@@ -77,4 +81,52 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
     #endregion
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DoorEnter") || other.CompareTag("DoorExit"))
+        {
+            Doors door = other.GetComponentInParent<Doors>();
+            door.isCloseDoor = false;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("DoorEnter"))
+        {
+            
+            Doors door = other.GetComponentInParent<Doors>();
+            
+            if (door == null)
+            {
+                Debug.Log("AAAAAAAAAAAA");
+            }
+            else
+            {
+                
+                    Debug.Log("A");
+                
+            }
+
+            door.isCloseDoor = true;
+            door.isEnter = true;
+
+        }
+        else if (other.CompareTag("DoorExit"))
+        {
+            Doors door = other.GetComponentInParent<Doors>();
+            if (door == null)
+            {
+                Debug.Log("AAAAAAAAAAAA");
+            }
+            else
+            {
+                Debug.Log("A");
+            }
+            door.isCloseDoor = true;
+            door.isEnter = false;
+        }
+        
+    }
+    
 }
