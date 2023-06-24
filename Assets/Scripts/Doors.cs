@@ -10,6 +10,8 @@ public class Doors : MonoBehaviour
 
     public bool isCloseDoor;
 
+    public bool hasNotKnob;
+
     [HideInInspector]
     public Animator anim;
     
