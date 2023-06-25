@@ -10,19 +10,20 @@ public class CameraLightSystem : MonoBehaviour
     [SerializeField] private float flashIntensity = 180f;
     [SerializeField] private float fadeDuration = 1.5f;
     [SerializeField] private float fadeDelay = 0.5f;
-    private float fadeSpeed;
+    [SerializeField] private float fadeSpeed;
     private Animator cameraAnim;
 
     private void Start()
     {
         cameraAnim = GetComponentInParent<Animator>();
         light = GetComponent<Light>();
-        fadeSpeed = flashIntensity / fadeDuration;
+        
         
     }
 
     private void Update()
     {
+        fadeSpeed = flashIntensity / fadeDuration;
         if (Input.GetKeyDown(KeyCode.F) && !takePicture && isCameraEquipped)
         {
             StartCoroutine(FlashLight());

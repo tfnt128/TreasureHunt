@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnter: 0
   isCloseDoor: 0
+  hasNotKnob: 0
   anim: {fileID: 0}
   isOpenAnyware: 0
 --- !u!1 &7358665916770503067
@@ -455,7 +456,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0fe2c680e7354109832594be2748e08, type: 2}
+  - {fileID: 2100000, guid: c7f07b673539249f6b1f31ab8d6676dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
