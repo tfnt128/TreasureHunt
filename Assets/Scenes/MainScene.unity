@@ -18939,6 +18939,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1405583244, guid: 5e7aed02f60f74512b00df7f804e7ce5, type: 3}
+      propertyPath: flashDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405583244, guid: 5e7aed02f60f74512b00df7f804e7ce5, type: 3}
       propertyPath: flashIntensity
       value: 40
       objectReference: {fileID: 0}
@@ -28296,7 +28300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1808008303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32739,7 +32743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2050869479
 MonoBehaviour:
   m_ObjectHideFlags: 0

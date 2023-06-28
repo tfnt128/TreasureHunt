@@ -1,30 +1,25 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueActivator : MonoBehaviour, Interectible
 {
     [SerializeField] private DialogueObject dialogueObject;
+    public PlayerDialogue player;
 
     public void UpdateDialogueObejct(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
     }
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerDialogue player))
+        if (other.CompareTag("Player"))
         {
-            player.interectible = this;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerDialogue player))
-        {
-            if(player.interectible is DialogueActivator dialogueActivator && dialogueActivator == this)
-            {
-                player.interectible = null;
-            }
+            Interect(player);
         }
     }
 
@@ -40,4 +35,11 @@ public class DialogueActivator : MonoBehaviour, Interectible
         }
         player.DialogueUI.ShowDialogue(dialogueObject);
     }
+
+    IEnumerator dialogueInicialDealy()
+    {
+        yield return new WaitForSeconds(2f);
+        Interect(player);
+    }
+    
 }

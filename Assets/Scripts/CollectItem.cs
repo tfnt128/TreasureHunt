@@ -6,18 +6,27 @@ using UnityEngine;
 public class CollectItem : MonoBehaviour
 {
     public ItensManager itens;
-
+    private BoxCollider col;
+    private MeshRenderer mesh;
+    public Material newMat;
+    
     private void Start()
     {
+        mesh = GetComponent<MeshRenderer>();
+        col = GetComponent<BoxCollider>();
         itens = GameObject.FindWithTag("ItensManager").GetComponent<ItensManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool once = false;
+
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !once)
         {
             itens.collectibleCount++;
-            Destroy(transform.parent.gameObject);
+            mesh.material = newMat;
+            Destroy(col);
+            once = true;
         }
     }
 }

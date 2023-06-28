@@ -6,6 +6,7 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    public OpenCutsceneScript dialogueActivator;
 
     public bool isOpen { get; private set; }
 
@@ -84,6 +85,7 @@ public class DialogueUI : MonoBehaviour
     {
         textLabel.text = string.Empty;
         StartCoroutine(dialogueBoxFadeOut());
+        dialogueActivator.dialogueEnded = true;
     }
     private IEnumerator dialogueBoxFadeOut()
     {

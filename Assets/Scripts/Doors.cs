@@ -24,7 +24,6 @@ public class Doors : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isCloseDoor);
         if (isEnter)
         {
             anim.SetBool("isEnter", true);
