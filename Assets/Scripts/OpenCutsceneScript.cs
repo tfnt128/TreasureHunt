@@ -9,13 +9,21 @@ public class OpenCutsceneScript : MonoBehaviour
     public GameObject playerPos;
     public CharacterController controller;
     public CapsuleCollider col;
+
+    public DoorRaycast raycastType;
     
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private DialogueObject NewdialogueObject;
+    [SerializeField] private DialogueObject NewdialogueObject2;
     public PlayerDialogue player;
     public bool dialogueEnded = false;
     public Animator fade;
     public int cont = 0;
+
+    public GameObject light1;
+    public GameObject light2;
+    public GameObject oldDinner;
+    public GameObject newDinner;
 
 
     private void Start()
@@ -40,9 +48,6 @@ public class OpenCutsceneScript : MonoBehaviour
                     cont = 2;
                     dialogueEnded = false;
                 }
-                
-                
-            
         }
     }
 
@@ -82,14 +87,21 @@ public class OpenCutsceneScript : MonoBehaviour
 
     IEnumerator cutsceneToGame()
     {
-        yield return new WaitForSeconds(1f);
+        light1.SetActive(false);
+        light2.SetActive(false);
+        oldDinner.SetActive(false);
+        newDinner.SetActive(true);
+        yield return new WaitForSeconds(2f);
         fade.SetTrigger("FadeIn");
         yield return new WaitForSeconds(4f);
         playerPos.transform.position = playerPosFinal.position;
         col.isTrigger = false;
         fade.SetTrigger("FadeOut");
         controller.enabled = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        raycastType.isNotDoor = false;
+        UpdateDialogueObejct(NewdialogueObject2);
+        Interect(player);
         
 
     }

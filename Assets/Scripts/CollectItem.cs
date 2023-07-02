@@ -9,9 +9,15 @@ public class CollectItem : MonoBehaviour
     private BoxCollider col;
     private MeshRenderer mesh;
     public Material newMat;
+    public bool isMain;
+    public Animator fade;
     
     private void Start()
     {
+        if (fade != null)
+        {
+            fade.SetTrigger("FadeOut");
+        }
         mesh = GetComponent<MeshRenderer>();
         col = GetComponent<BoxCollider>();
         itens = GameObject.FindWithTag("ItensManager").GetComponent<ItensManager>();
@@ -27,6 +33,11 @@ public class CollectItem : MonoBehaviour
             mesh.material = newMat;
             Destroy(col);
             once = true;
+            
+            if (isMain)
+            {
+                fade.SetTrigger("FadeIn");
+            }
         }
     }
 }

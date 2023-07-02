@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b9ee2c52e753cc49a494fe4679c0865, type: 3}
-  m_Name: CustceneInicial
+  m_Name: CustceneInicial 3
   m_EditorClassIdentifier: 
   dialogue:
-  - Filho...
-  - "A luz n\xE3o para de piscar..."
-  - "Vou tentar arrumar os geradores no galp\xE3o, antes de fechar o restaurante.\n"
-  - "N\xE3o quero ter que trocar as l\xE2mpadas a essa hora."
-  - Quando eu voltar, vamos para a casa.
-  - "Compro um lanche para voc\xEA no caminho, ok?"
-  - Tudo bem, pai.
+  - Droga, agora apagou tudo...
+  - "Vou ter que usar o flash da c\xE2mera para iluminar."
+  - "Acho que o galp\xE3o fica atr\xE1s do restaurante."
+  - "S\xF3 consigo chegar la pelo estacionamento."
   responses: []

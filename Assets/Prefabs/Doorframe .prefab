@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 2577505086211710011}
   - component: {fileID: 3995166762961477449}
   - component: {fileID: 373611748975103932}
+  - component: {fileID: 1192510758}
   m_Layer: 7
   m_Name: Door04
   m_TagString: InteractiveObject
@@ -512,6 +513,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &1192510758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990892335568242188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0002055, y: 1.989794, z: 0.10000008}
+  m_Center: {x: -0.49985132, y: 0.00000008940697, z: 0}
 --- !u!1 &8668121106190171161
 GameObject:
   m_ObjectHideFlags: 0

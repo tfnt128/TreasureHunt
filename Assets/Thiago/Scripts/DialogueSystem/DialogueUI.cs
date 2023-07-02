@@ -85,14 +85,15 @@ public class DialogueUI : MonoBehaviour
     {
         textLabel.text = string.Empty;
         StartCoroutine(dialogueBoxFadeOut());
-        dialogueActivator.dialogueEnded = true;
+        if (dialogueActivator != null)
+        {
+            dialogueActivator.dialogueEnded = true;
+        }
     }
     private IEnumerator dialogueBoxFadeOut()
     {
         yield return new WaitForSeconds(1f);
         isOpen = false;
         dialogueBox.SetActive(false);
-
     }
-    
 }

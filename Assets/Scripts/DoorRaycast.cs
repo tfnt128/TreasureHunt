@@ -8,8 +8,11 @@ public class DoorRaycast : MonoBehaviour
 {
     [SerializeField] private int rayLenght = 5;
     [SerializeField] private LayerMask layerMaskInteract;
-    [SerializeField] private string excludedLayerMask = null; 
+    [SerializeField] private string excludedLayerMask = null;
+    public GrabItems itemsManager;
 
+    public bool isNotDoor;
+    private Items raycastedObjItens;
     private Doors raycastedObj;
 
     [SerializeField] private KeyCode interactDoorKey = KeyCode.Mouse0;
@@ -30,27 +33,61 @@ public class DoorRaycast : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactibleTag))
             {
-                if (!doOnce)
+                Debug.Log("AAAAAAAAAAAAAAA");
+                if (isNotDoor)
                 {
-                    raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
-                    CrossHairChange(true);
-                }
-
-                isCrosshairActivate = true;
-                doOnce = true;
-                
-                if (Input.GetKeyDown(interactDoorKey))
-                {
-                    raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
-                    if (raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
+                    if (!doOnce)
                     {
-                        raycastedObj.isOpenAnyware = false;
-                        raycastedObj.anim.SetTrigger("CloseTrigger");
+                        raycastedObjItens = hit.collider.gameObject.GetComponent<Items>();
+                        CrossHairChange(true);
                     }
-                    else if(!raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
+
+                    isCrosshairActivate = true;
+                    doOnce = true;
+                
+                    if (Input.GetKeyDown(interactDoorKey))
                     {
-                        raycastedObj.isOpenAnyware = true;
-                        raycastedObj.anim.SetTrigger("OpenTrigger");
+                        Debug.Log("BBBBBBBBBB");
+                        raycastedObjItens = hit.collider.gameObject.GetComponent<Items>();
+
+                        if (raycastedObjItens.name == "Camera")
+                        {
+                            Debug.Log("CCCCCCCCCCCC");
+                            itemsManager.hasCam = true;
+                            
+                        }
+                        else
+                        {
+                            itemsManager.hasKey = true;
+                        }
+                        Destroy(raycastedObjItens.gameObject);
+                        
+                    }
+                }
+                else
+                {
+                    if (!doOnce)
+                    {
+                        raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
+                        CrossHairChange(true);
+                    }
+
+                    isCrosshairActivate = true;
+                    doOnce = true;
+                
+                    if (Input.GetKeyDown(interactDoorKey))
+                    {
+                        raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
+                        if (raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
+                        {
+                            raycastedObj.isOpenAnyware = false;
+                            raycastedObj.anim.SetTrigger("CloseTrigger");
+                        }
+                        else if(!raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
+                        {
+                            raycastedObj.isOpenAnyware = true;
+                            raycastedObj.anim.SetTrigger("OpenTrigger");
+                        }
                     }
                 }
             }

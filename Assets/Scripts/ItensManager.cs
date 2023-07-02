@@ -10,6 +10,7 @@ public class ItensManager : MonoBehaviour
     public GameObject objetoParaInstanciar;
 
     public int collectibleCount;
+    public BoxCollider col;
 
     private void Start()
     {
@@ -41,15 +42,16 @@ public class ItensManager : MonoBehaviour
         }
     }
 
+    private bool doOnce = false;
+
     private void Update()
     {
-        if (collectibleCount >= 4)
+        if (collectibleCount >= 4 && !doOnce)
         {
-            int randomChildIndex = Random.Range(0, itensList.Count);
-            GameObject randomChild = itensList[randomChildIndex];
-            Instantiate(objetoParaInstanciar, randomChild.transform.position, randomChild.transform.rotation);
+            col.enabled = true;
             
             collectibleCount = 0;
+            doOnce = true;
         }
     }
 }

@@ -10,14 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b9ee2c52e753cc49a494fe4679c0865, type: 3}
-  m_Name: CustceneInicial
+  m_Name: "nextGalp\xE3o"
   m_EditorClassIdentifier: 
   dialogue:
-  - Filho...
-  - "A luz n\xE3o para de piscar..."
-  - "Vou tentar arrumar os geradores no galp\xE3o, antes de fechar o restaurante.\n"
-  - "N\xE3o quero ter que trocar as l\xE2mpadas a essa hora."
-  - Quando eu voltar, vamos para a casa.
-  - "Compro um lanche para voc\xEA no caminho, ok?"
-  - Tudo bem, pai.
+  - "Acho que o galp\xE3o fica logo a frente."
   responses: []

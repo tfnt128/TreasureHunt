@@ -7,6 +7,7 @@ public class DialogueActivator : MonoBehaviour, Interectible
 {
     [SerializeField] private DialogueObject dialogueObject;
     public PlayerDialogue player;
+    private bool isActivate = false;
 
     public void UpdateDialogueObejct(DialogueObject dialogueObject)
     {
@@ -17,9 +18,11 @@ public class DialogueActivator : MonoBehaviour, Interectible
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isActivate)
         {
             Interect(player);
+            isActivate = true;
+            Destroy(this.gameObject);
         }
     }
 
