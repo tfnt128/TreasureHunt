@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,18 +11,36 @@ public class Timer : MonoBehaviour
 
     [Header("Timer Settings")]
     [SerializeField] private float currentTime;
+
+    public Animator fadeAnim;
+    public Animator fadeAnim2;
     
 
     private float timerLimit = 0;
+    
+    [SerializeField] private string sceneName;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject button;
+    [SerializeField] private GameObject timerGO;
+    [SerializeField] private PlayerMovement player;
+    private GameObject fade2GO;
+
+    private void Start()
+    {
+        fade2GO = fadeAnim2.gameObject;
+    }
+
+    private bool doOnce = false;
 
     void Update()
     {
         currentTime -= Time.deltaTime;
 
-        if (currentTime <= 0.5)
+        if (currentTime <= 0.5 && !doOnce)
         {
             timerText.color = Color.red;
-            StartCoroutine(restart());
+            StartCoroutine(gameOver());
+            doOnce = true;
         }
         if (currentTime <= timerLimit)
         {
@@ -35,10 +54,29 @@ public class Timer : MonoBehaviour
     {
         timerText.text = currentTime.ToString("0");
     }
-    IEnumerator restart()
+    IEnumerator gameOver()
     {
-       // timesUpText.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        fadeAnim.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
+        timerGO.SetActive(false);
+       yield return new WaitForSeconds(2f);
+       fade2GO.SetActive(true);
+       fadeAnim2.SetTrigger("FadeOut");
+       gameOverScreen.SetActive(true);
+       button.SetActive(true);
+       player.isDead = true;
+
+    }
+
+    public void RestartButton()
+    {
+        StartCoroutine(restartCoroutine());
+    }
+
+    IEnumerator restartCoroutine()
+    {
+        fadeAnim2.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(sceneName);
     }
 }

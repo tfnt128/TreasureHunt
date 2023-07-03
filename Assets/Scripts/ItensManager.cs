@@ -30,7 +30,7 @@ public class ItensManager : MonoBehaviour
             }
         }
     }
-    
+
     private void ShuffleList(List<GameObject> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -46,6 +46,11 @@ public class ItensManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            collectibleCount = 3;
+        }
+        
         if (collectibleCount >= 4 && !doOnce)
         {
             col.enabled = true;

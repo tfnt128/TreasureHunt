@@ -26,23 +26,30 @@ public class PlayerMovement : MonoBehaviour
 
     private float rotationX = 0;
 
+    public bool isDead;
+
     void Awake()
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
 
-        LockCursor(CursorLockMode.Locked);
+       // LockCursor(CursorLockMode.Locked);
     }
 
     void Update()
     {
-        MovementInput();
+        if (!isDead)
+        {
+            MovementInput();
 
-        MouseLook();
+            MouseLook();
 
-        FinalMovements();
-        
-        
+            FinalMovements();
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
     }
 
     public void LockCursor(CursorLockMode lockMode)
