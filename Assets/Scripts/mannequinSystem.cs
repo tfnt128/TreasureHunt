@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class mannequinSystem : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class mannequinSystem : MonoBehaviour
     public float rotationSpeed = 5f;
     public float movementSpeed;
     public ItensManager item;
-
+    private AudioSource audio;
+    
+    
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -34,6 +38,9 @@ public class mannequinSystem : MonoBehaviour
 
     public void Steps()
     {
+        float random = Random.Range(.8f, 1.2f);
+        audio.pitch = random;
+        audio.Play();
         Vector3 direction = playerTransform.position - transform.position;
         direction.y = 0f; 
         
@@ -45,4 +52,5 @@ public class mannequinSystem : MonoBehaviour
         
         rb.MovePosition(transform.position + movement * Time.deltaTime * movementSpeed);
     }
+    
 }

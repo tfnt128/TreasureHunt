@@ -17,6 +17,8 @@ public class FootStepSystem : MonoBehaviour
     private PlayerMovement player;
 
     public AudioSource step;
+
+    public bool isMain;
     private void Start()
     {
         player = GetComponent<PlayerMovement>();
@@ -58,8 +60,18 @@ public class FootStepSystem : MonoBehaviour
 
     IEnumerator delayStep()
     {
-        float a = Random.Range(.5f, .7f);
-        yield return new WaitForSeconds(a);
+        if (isMain)
+        {
+            float a = Random.Range(.7f, .9f);
+            yield return new WaitForSeconds(a);
+        }
+        else
+        {
+            float a = Random.Range(.5f, .7f);
+            yield return new WaitForSeconds(a);
+        }
+        
+        
         isTriggered = false;
     }
 }

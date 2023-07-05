@@ -11,9 +11,11 @@ public class CollectItem : MonoBehaviour
     public Material newMat;
     public bool isMain;
     public Animator fade;
-    
+    private AudioSource audio;
+    public AudioSource audioButton;
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         if (fade != null)
         {
             fade.SetTrigger("FadeOut");
@@ -33,6 +35,8 @@ public class CollectItem : MonoBehaviour
             mesh.material = newMat;
             Destroy(col);
             once = true;
+            audio.Play();
+            audioButton.Play();
             
             if (isMain)
             {
