@@ -12,6 +12,7 @@ public class CameraLightSystem : MonoBehaviour
     [SerializeField] private float fadeDelay = 0.5f;
     [SerializeField] private float fadeSpeed;
     private Animator cameraAnim;
+    [SerializeField] private AudioSource audioFlash;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class CameraLightSystem : MonoBehaviour
 
     private IEnumerator FlashLight()
     {
+        audioFlash.Play();
         light.intensity = flashIntensity;
         yield return new WaitForSeconds(flashDuration);
         

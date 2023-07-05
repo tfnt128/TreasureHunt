@@ -20,10 +20,13 @@ public class OpenCutsceneScript : MonoBehaviour
     public Animator fade;
     public int cont = 0;
 
-    public GameObject light1;
-    public GameObject light2;
-    public GameObject oldDinner;
-    public GameObject newDinner;
+    [SerializeField] private GameObject light1;
+    [SerializeField] private GameObject light2;
+    [SerializeField] private GameObject oldDinner;
+    [SerializeField] private GameObject newDinner;
+    [SerializeField] private AudioSource audioDoorOpen;
+    [SerializeField] private AudioSource audioDoorClose;
+    [SerializeField] private AudioSource audioLightDown;
 
 
     private void Start()
@@ -79,6 +82,10 @@ public class OpenCutsceneScript : MonoBehaviour
     IEnumerator dialogueEndedDealyAction()
     {
         yield return new WaitForSeconds(2f);
+        audioDoorOpen.Play();
+        yield return new WaitForSeconds(1f);
+        audioDoorClose.Play();
+        yield return new WaitForSeconds(2f);
         fade.SetTrigger("FadeOut");
         yield return new WaitForSeconds(8f);
         UpdateDialogueObejct(NewdialogueObject);
@@ -87,6 +94,7 @@ public class OpenCutsceneScript : MonoBehaviour
 
     IEnumerator cutsceneToGame()
     {
+        audioLightDown.Play();
         light1.SetActive(false);
         light2.SetActive(false);
         oldDinner.SetActive(false);

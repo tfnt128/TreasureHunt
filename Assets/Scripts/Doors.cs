@@ -16,6 +16,8 @@ public class Doors : MonoBehaviour
     public Animator anim;
     
     public bool isOpenAnyware;
+    
+    
 
     private void Start()
     {

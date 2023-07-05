@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 forward;
     private Vector3 right;
     private Vector3 moveDirection;
-    private Vector2 currentInput;
+    public Vector2 currentInput;
 
     private float rotationX = 0;
 

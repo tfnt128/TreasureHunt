@@ -21,6 +21,9 @@ public class DoorRaycast : MonoBehaviour
     private bool doOnce;
 
     private const string interactibleTag = "InteractiveObject";
+    
+    [SerializeField] private AudioSource audioDoorClose;
+    [SerializeField] private AudioSource audioDoorOpen;
 
     private void Update()
     {
@@ -33,7 +36,6 @@ public class DoorRaycast : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactibleTag))
             {
-                Debug.Log("AAAAAAAAAAAAAAA");
                 if (isNotDoor)
                 {
                     if (!doOnce)
@@ -47,14 +49,11 @@ public class DoorRaycast : MonoBehaviour
                 
                     if (Input.GetKeyDown(interactDoorKey))
                     {
-                        Debug.Log("BBBBBBBBBB");
                         raycastedObjItens = hit.collider.gameObject.GetComponent<Items>();
 
                         if (raycastedObjItens.name == "Camera")
                         {
-                            Debug.Log("CCCCCCCCCCCC");
                             itemsManager.hasCam = true;
-                            
                         }
                         else
                         {
@@ -80,11 +79,13 @@ public class DoorRaycast : MonoBehaviour
                         raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
                         if (raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
                         {
+                            audioDoorClose.Play();
                             raycastedObj.isOpenAnyware = false;
                             raycastedObj.anim.SetTrigger("CloseTrigger");
                         }
                         else if(!raycastedObj.isOpenAnyware && raycastedObj.isCloseDoor)
                         {
+                            audioDoorOpen.Play();
                             raycastedObj.isOpenAnyware = true;
                             raycastedObj.anim.SetTrigger("OpenTrigger");
                         }
