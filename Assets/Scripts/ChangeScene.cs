@@ -10,8 +10,7 @@ public class ChangeScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            fadeAnim.SetTrigger("FadeIn");
-            StartCoroutine(fade());
+            changeScene();
         }
     }
 
@@ -19,5 +18,11 @@ public class ChangeScene : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void changeScene()
+    {
+        fadeAnim.SetTrigger("FadeIn");
+        StartCoroutine(fade());
     }
 }
