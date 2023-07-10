@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour, Interectible
 {
     [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private bool hasTimer;
     public PlayerDialogue player;
     private bool isActivate = false;
 
@@ -36,7 +37,7 @@ public class DialogueActivator : MonoBehaviour, Interectible
                 break;
             }
         }
-        player.DialogueUI.ShowDialogue(dialogueObject);
+        player.DialogueUI.ShowDialogue(dialogueObject, hasTimer);
     }
 
     IEnumerator dialogueInicialDealy()

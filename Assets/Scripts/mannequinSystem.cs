@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +14,14 @@ public class mannequinSystem : MonoBehaviour
     public float movementSpeed;
     public ItensManager item;
     private AudioSource audio;
+    [SerializeField] private Timer gameOverTime;
+    [SerializeField] private GameObject mannequinDeath;
+    [SerializeField] private GameObject oldMannequin;
+    [SerializeField] private GameObject blackScreenDeath;
+    [SerializeField] private AudioSource jumpscare;
+    [SerializeField] private AudioSource impactDeath;
+    
+    
     
     
     private void Start()
@@ -31,7 +41,7 @@ public class mannequinSystem : MonoBehaviour
         }
         else if(item.collectibleCount == 3)
         {
-            stepDistance = 1.1f;
+            stepDistance = .8f;
             anim.SetTrigger("Run");
         }
     }
@@ -52,5 +62,26 @@ public class mannequinSystem : MonoBehaviour
         
         rb.MovePosition(transform.position + movement * Time.deltaTime * movementSpeed);
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && item.collectibleCount > 0)
+        {
+            StartCoroutine(gameOverTime.gameOver());
+            StartCoroutine(gameOver());
+        }
+        
+    }
+
+    IEnumerator gameOver()
+    {
+        jumpscare.Play();
+        oldMannequin.transform.position = new Vector3(0, 0, 0);
+        mannequinDeath.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        impactDeath.Play();
+        blackScreenDeath.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        oldMannequin.SetActive(false);
+    }
 }

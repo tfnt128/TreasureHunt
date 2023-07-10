@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectItem : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CollectItem : MonoBehaviour
     public Animator fade;
     private AudioSource audio;
     public AudioSource audioButton;
+    public string endingSceneName;
     private void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -40,8 +42,16 @@ public class CollectItem : MonoBehaviour
             
             if (isMain)
             {
-                fade.SetTrigger("FadeIn");
+                StartCoroutine(LoadNextScene());
             }
         }
     }
+
+    private IEnumerator LoadNextScene()
+    {
+        fade.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(endingSceneName);
+    }
+    
 }

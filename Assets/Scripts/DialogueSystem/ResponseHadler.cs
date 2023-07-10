@@ -68,7 +68,7 @@ public class ResponseHadler : MonoBehaviour
 
         if (response.DialogueObject)
         {
-            dialogueUI.ShowDialogue(response.DialogueObject);
+            //dialogueUI.ShowDialogue(response.DialogueObject);
         }
         else
         {

@@ -12,6 +12,7 @@ public class DialogueUI : MonoBehaviour
 
     private ResponseHadler responseHadler;
     private TypewriterEffect typewriterEffect;
+    private bool hasTimer;
     private void Start()
     {
         typewriterEffect = GetComponent<TypewriterEffect>();
@@ -20,11 +21,11 @@ public class DialogueUI : MonoBehaviour
       //  CloseDialogueBox();
     }
 
-    public void ShowDialogue(DialogueObject dialogueObject)
+    public void ShowDialogue(DialogueObject dialogueObject, bool hasTimer)
     {
         isOpen = true;
         dialogueBox.SetActive(true);
-        StartCoroutine(StepThroughtDialogue(dialogueObject));
+        StartCoroutine(StepThroughtDialogue(dialogueObject, hasTimer));
     }
 
     public void AddResponseEvents(ResponseEvent[] responseEvents)
@@ -32,7 +33,7 @@ public class DialogueUI : MonoBehaviour
         responseHadler.AddResponseEvents(responseEvents);
     }
     
-    private IEnumerator StepThroughtDialogue(DialogueObject dialogueObject)
+    private IEnumerator StepThroughtDialogue(DialogueObject dialogueObject, bool hasTimer)
     {
 
         yield return new WaitForSeconds(.5f);
@@ -51,7 +52,15 @@ public class DialogueUI : MonoBehaviour
 
 
             yield return new WaitForSeconds(.5f);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+            if (!hasTimer)
+            {
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+            }
+            else
+            {
+                yield return new WaitForSeconds(2f);
+            }
+            
         }
 
         if (dialogueObject.HasResponses)

@@ -27,6 +27,7 @@ public class OpenCutsceneScript : MonoBehaviour
     [SerializeField] private AudioSource audioDoorOpen;
     [SerializeField] private AudioSource audioDoorClose;
     [SerializeField] private AudioSource audioLightDown;
+    private bool hasTimer = false;
 
 
     private void Start()
@@ -70,7 +71,7 @@ public class OpenCutsceneScript : MonoBehaviour
                 break;
             }
         }
-        player.DialogueUI.ShowDialogue(dialogueObject);
+        player.DialogueUI.ShowDialogue(dialogueObject, hasTimer);
     }
 
     IEnumerator dialogueInicialDealy()

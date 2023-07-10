@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
     {
         timerText.text = currentTime.ToString("0");
     }
-    IEnumerator gameOver()
+    public IEnumerator gameOver()
     {
         fadeAnim.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);

@@ -9,6 +9,7 @@ TagManager:
   - DoorExit
   - InteractiveObject
   - ItensManager
+  - Walls
   layers:
   - Default
   - TransparentFX
