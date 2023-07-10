@@ -1,16 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ItensManager : MonoBehaviour
 {
-    public List<GameObject> itensList = new List<GameObject>();
-    public GameObject objetoParaInstanciar;
+    [SerializeField] private List<GameObject> itensList = new List<GameObject>();
+    [SerializeField] private GameObject objetoParaInstanciar;
 
     public int collectibleCount;
-    public BoxCollider col;
+    [SerializeField] private BoxCollider col;
 
     private void Start()
     {

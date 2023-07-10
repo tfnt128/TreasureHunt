@@ -103,18 +103,6 @@ public class PlayerMovement : MonoBehaviour
         {
             
             Doors door = other.GetComponentInParent<Doors>();
-            
-            if (door == null)
-            {
-                Debug.Log("AAAAAAAAAAAA");
-            }
-            else
-            {
-                
-                    Debug.Log("A");
-                
-            }
-
             door.isCloseDoor = true;
             door.isEnter = true;
 
@@ -122,14 +110,6 @@ public class PlayerMovement : MonoBehaviour
         else if (other.CompareTag("DoorExit"))
         {
             Doors door = other.GetComponentInParent<Doors>();
-            if (door == null)
-            {
-                Debug.Log("AAAAAAAAAAAA");
-            }
-            else
-            {
-                Debug.Log("A");
-            }
             door.isCloseDoor = true;
             door.isEnter = false;
         }

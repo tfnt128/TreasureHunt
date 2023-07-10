@@ -31,12 +31,10 @@ public class FootStepSystem : MonoBehaviour
 
         if (inputMagnitude > 0)
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             StartFootStep();
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("SIIIIIIIa");
             step.Play();
         }
     }

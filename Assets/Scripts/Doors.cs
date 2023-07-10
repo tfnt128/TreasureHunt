@@ -8,6 +8,7 @@ public class Doors : MonoBehaviour
     [HideInInspector]
     public bool isEnter;
 
+    [HideInInspector]
     public bool isCloseDoor;
 
     public bool hasNotKnob;
@@ -15,6 +16,7 @@ public class Doors : MonoBehaviour
     [HideInInspector]
     public Animator anim;
     
+    [HideInInspector]
     public bool isOpenAnyware;
     
     

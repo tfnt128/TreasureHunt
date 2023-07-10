@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,7 +38,6 @@ public class DoorRaycast : MonoBehaviour
                     if (!doOnce)
                     {
                         raycastedObjItens = hit.collider.gameObject.GetComponent<Items>();
-                        CrossHairChange(true);
                     }
 
                     isCrosshairActivate = true;
@@ -68,7 +64,6 @@ public class DoorRaycast : MonoBehaviour
                     if (!doOnce)
                     {
                         raycastedObj = hit.collider.gameObject.GetComponentInParent<Doors>();
-                        CrossHairChange(true);
                     }
 
                     isCrosshairActivate = true;
@@ -92,38 +87,6 @@ public class DoorRaycast : MonoBehaviour
                     }
                 }
             }
-        }
-        else
-        {
-            if (isCrosshairActivate)
-            {
-                CrossHairChange(false);
-                doOnce = false;
-            }
-        }
-    }
-
-    void CrossHairChange(bool on)
-    {
-        if (on && !doOnce)
-        {
-            if (raycastedObj != null)
-            {
-                if (raycastedObj.isCloseDoor)
-                {
-                   // crossHair.color = Color.red; 
-                }
-                else
-                {
-                   // crossHair.color = Color.white;
-                   // isCrosshairActivate = false;
-                }
-            }
-        }
-        else
-        {
-           // crossHair.color = Color.white;
-            //isCrosshairActivate = false;
         }
     }
 }

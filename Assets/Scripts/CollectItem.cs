@@ -1,20 +1,19 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollectItem : MonoBehaviour
 {
-    public ItensManager itens;
+    private ItensManager itens;
     private BoxCollider col;
     private MeshRenderer mesh;
-    public Material newMat;
-    public bool isMain;
-    public Animator fade;
+    [SerializeField] private Material newMat;
+    [SerializeField] private bool isMain;
+    [SerializeField] private Animator fade;
+    [SerializeField] private string endingSceneName;
+    [SerializeField] private AudioSource audioButton;
     private AudioSource audio;
-    public AudioSource audioButton;
-    public string endingSceneName;
+    
     private void Start()
     {
         audio = GetComponent<AudioSource>();

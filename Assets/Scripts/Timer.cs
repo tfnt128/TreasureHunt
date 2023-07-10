@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -12,8 +11,8 @@ public class Timer : MonoBehaviour
     [Header("Timer Settings")]
     [SerializeField] private float currentTime;
 
-    public Animator fadeAnim;
-    public Animator fadeAnim2;
+    [SerializeField] private Animator fadeAnim;
+    [SerializeField] private Animator fadeAnim2;
     
 
     private float timerLimit = 0;
@@ -55,16 +54,16 @@ public class Timer : MonoBehaviour
         timerText.text = currentTime.ToString("0");
     }
     public IEnumerator gameOver()
-    {
+    { 
         fadeAnim.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
         timerGO.SetActive(false);
-       yield return new WaitForSeconds(2f);
-       fade2GO.SetActive(true);
-       fadeAnim2.SetTrigger("FadeOut");
-       gameOverScreen.SetActive(true);
-       button.SetActive(true);
-       player.isDead = true;
+        yield return new WaitForSeconds(2f);
+        fade2GO.SetActive(true);
+        fadeAnim2.SetTrigger("FadeOut");
+        gameOverScreen.SetActive(true);
+        button.SetActive(true);
+        player.isDead = true;
 
     }
 

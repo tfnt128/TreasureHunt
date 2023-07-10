@@ -7791,10 +7791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &461611860
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7903,8 +7899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!1 &469266463
 GameObject:
   m_ObjectHideFlags: 0
@@ -21806,10 +21800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &1046291305
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21918,8 +21908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!1 &1068657237
 GameObject:
   m_ObjectHideFlags: 0
@@ -30999,6 +30987,7 @@ MonoBehaviour:
   NewdialogueObject: {fileID: 11400000, guid: 6bc201490c20d5b468d671924184f47b, type: 2}
   NewdialogueObject2: {fileID: 11400000, guid: e6c13e6d363a30a4a8072a3814d3f8aa, type: 2}
   player: {fileID: 1659865714}
+  footStep: {fileID: 1708673364}
   dialogueEnded: 0
   fade: {fileID: 162702776}
   cont: 0
@@ -31794,10 +31783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &1702950441
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31906,8 +31891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!1 &1707570184
 GameObject:
   m_ObjectHideFlags: 0
@@ -32216,11 +32199,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1708673355 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 559226319649993120, guid: 5e7aed02f60f74512b00df7f804e7ce5, type: 3}
-  m_PrefabInstance: {fileID: 1708673349}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1708673363
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32324,7 +32302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708673352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efcc5abbd981de94fb0047ab0c29e405, type: 3}
   m_Name: 
@@ -36337,10 +36315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &1960454362
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36449,8 +36423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!1 &1961366268
 GameObject:
   m_ObjectHideFlags: 0
@@ -56320,8 +56292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!114 &5232041267963189675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56334,10 +56304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &5232041267963189676
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56656,8 +56622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!114 &5289206354012540015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56670,10 +56634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &5289206354012540016
 AudioSource:
   m_ObjectHideFlags: 0
@@ -67977,8 +67937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d770016719b456b44bb5a16b8d476f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
-  surfaceName: Concrete
 --- !u!114 &9187589040539586798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67991,10 +67949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ee1aa614023d74ab5cc29a5d22f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
-  foot: {fileID: 1708673355}
-  raycastSize: 10
-  data: {fileID: 11400000, guid: 3a770865e9eae33448d1676dd14fcd91, type: 2}
 --- !u!82 &9187589040539586799
 AudioSource:
   m_ObjectHideFlags: 0

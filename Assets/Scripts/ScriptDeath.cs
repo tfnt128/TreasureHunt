@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptDeath : MonoBehaviour
@@ -15,7 +14,6 @@ public class ScriptDeath : MonoBehaviour
         {
             StartCoroutine(gameOver());
         }
-        
     }
 
     IEnumerator gameOver()

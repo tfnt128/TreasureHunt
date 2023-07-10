@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class mannequinManager : MonoBehaviour
 {
-    public GameObject mannequin1;
-    public GameObject mannequin2;
-    public bool appers;
+    [SerializeField] private GameObject mannequin1;
+    [SerializeField] private GameObject mannequin2;
+    [SerializeField] private bool appers;
 
     private void OnTriggerEnter(Collider other)
     {

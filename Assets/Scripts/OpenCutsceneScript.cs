@@ -5,20 +5,22 @@ using UnityEngine;
 
 public class OpenCutsceneScript : MonoBehaviour
 {
-    public Transform playerPosFinal;
-    public GameObject playerPos;
-    public CharacterController controller;
-    public CapsuleCollider col;
+    [SerializeField] private Transform playerPosFinal;
+    [SerializeField] private GameObject playerPos;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private CapsuleCollider col;
 
-    public DoorRaycast raycastType;
+    [SerializeField] private DoorRaycast raycastType;
     
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private DialogueObject NewdialogueObject;
     [SerializeField] private DialogueObject NewdialogueObject2;
-    public PlayerDialogue player;
+    [SerializeField] private PlayerDialogue player;
+    [SerializeField] private FootStepSystem footStep;
+    
     public bool dialogueEnded = false;
-    public Animator fade;
-    public int cont = 0;
+    [SerializeField] private Animator fade;
+    [SerializeField] private int cont = 0;
 
     [SerializeField] private GameObject light1;
     [SerializeField] private GameObject light2;
@@ -103,6 +105,7 @@ public class OpenCutsceneScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         fade.SetTrigger("FadeIn");
         yield return new WaitForSeconds(4f);
+        footStep.enabled = true;
         playerPos.transform.position = playerPosFinal.position;
         col.isTrigger = false;
         fade.SetTrigger("FadeOut");

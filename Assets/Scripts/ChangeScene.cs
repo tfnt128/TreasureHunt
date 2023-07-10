@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeScene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    public Animator fadeAnim;
+    [SerializeField] private Animator fadeAnim;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
